@@ -56,7 +56,10 @@ export class UserService {
       select: ['id', 'email', 'username', 'password', 'image', 'bio'],
     });
     if (!user) {
-      throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+      throw new HttpException(
+        'Credentials are not valid',
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
     }
 
     const isValid = await compare(data.password, user.password);
