@@ -12,6 +12,7 @@ import { CreateUserDto } from '@app/user/dto/createUser.dto';
 import { UserResponseInterface } from '@app/user/types/userResponse.interface';
 import { LoginDto } from '@app/user/dto/login.dto';
 import { ExpressRequest } from '@app/types/expressRequest.interface';
+import { User } from '@app/user/decorators/user.decorators';
 
 @Controller()
 export class UserController {
@@ -21,9 +22,7 @@ export class UserController {
   async CreateUser(
     @Body('user') createUserDto: CreateUserDto,
   ): Promise<UserResponseInterface> {
-    console.log('In the controller');
     const user = await this.userService.createUser(createUserDto);
-    console.log(user);
     return this.userService.buildUserResponse(user);
   }
   @Post('users/login')
@@ -37,8 +36,8 @@ export class UserController {
   @Get()
   async currentUser(
     @Req() request: ExpressRequest,
+    @User() user: any,
   ): Promise<UserResponseInterface> {
-    return '' as any;
-    // return this.userService.buildUserResponse(request.user);
+    return this.userService.buildUserResponse(request.user);
   }
 }
