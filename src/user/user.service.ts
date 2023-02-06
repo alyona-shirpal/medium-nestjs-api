@@ -42,6 +42,7 @@ export class UserService {
   }
 
   buildUserResponse(user: UserEntity): UserResponseInterface {
+    console.log('In the build user response');
     return {
       user: {
         ...user,
@@ -72,5 +73,9 @@ export class UserService {
 
     delete user.password;
     return user;
+  }
+
+  async findById(id: number): Promise<UserEntity> {
+    return this.userRepository.findOne({ where: { id } });
   }
 }
