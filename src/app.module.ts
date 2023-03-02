@@ -13,10 +13,10 @@ import { AuthMiddleware } from '@app/user/middlewares/auth.middleware';
   providers: [AppService],
 })
 export class AppModule {
-  // configure(consumer: MiddlewareConsumer) {
-  //   consumer.apply(AuthMiddleware).forRoutes({
-  //     path: '*',
-  //     method: RequestMethod.ALL,
-  //   });
-  //}
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(AuthMiddleware).forRoutes({
+      path: '*',
+      method: RequestMethod.ALL,
+    });
+  }
 }
