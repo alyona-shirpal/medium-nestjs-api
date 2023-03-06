@@ -43,7 +43,6 @@ export class UserService {
   }
 
   buildUserResponse(user: UserEntity): UserResponseInterface {
-    console.log('In the build user response');
     return {
       user: {
         ...user,
