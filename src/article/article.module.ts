@@ -5,9 +5,12 @@ import { AuthGuard } from '@app/user/guards/ auth.guard';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ArticleEntity } from '@app/article/article.entity';
 import { UserEntity } from '@app/user/user.entity';
+import { FollowEntity } from '@app/profile/follow.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([ArticleEntity, UserEntity])],
+  imports: [
+    TypeOrmModule.forFeature([ArticleEntity, UserEntity, FollowEntity]),
+  ],
   controllers: [ArticleController],
   exports: [ArticleService],
   providers: [ArticleService, AuthGuard],
