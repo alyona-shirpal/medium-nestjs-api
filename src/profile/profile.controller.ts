@@ -7,7 +7,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { ProfileService } from '@app/profile/profile.service';
-import { AuthGuard } from '@app/user/guards/ auth.guard';
+import { AuthGuard } from '@app/user/guards/auth.guard';
 import { ProfileResponseInterface } from '@app/profile/types/profile.response.interface';
 import { User } from '@app/user/decorators/user.decorators';
 

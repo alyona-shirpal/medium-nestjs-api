@@ -11,7 +11,7 @@ import {
   UsePipes,
 } from '@nestjs/common';
 import { ArticleService } from '@app/article/article.service';
-import { AuthGuard } from '@app/user/guards/ auth.guard';
+import { AuthGuard } from '@app/user/guards/auth.guard';
 import { User } from '@app/user/decorators/user.decorators';
 import { CreateArticleDto } from '@app/article/dto/create.article.dto';
 import { UserEntity } from '@app/user/user.entity';
@@ -105,7 +105,7 @@ export class ArticleController {
 
   @Delete(':slug/favorite')
   @UseGuards(AuthGuard)
-  async deleetArticleToFavorite(
+  async deleteArticleToFavorite(
     @User('id') userId: number,
     @Param('slug') slug: string,
   ): Promise<ArticleResponseInterface> {

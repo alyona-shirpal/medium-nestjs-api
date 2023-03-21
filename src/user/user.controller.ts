@@ -14,7 +14,7 @@ import { UserResponseInterface } from '@app/user/types/userResponse.interface';
 import { LoginDto } from '@app/user/dto/login.dto';
 import { User } from '@app/user/decorators/user.decorators';
 import { UserEntity } from '@app/user/user.entity';
-import { AuthGuard } from '@app/user/guards/ auth.guard';
+import { AuthGuard } from '@app/user/guards/auth.guard';
 import { UpdateUserDto } from '@app/user/dto/updateUser.dto';
 import { BackendValidationPipe } from '@app/shared/pipes/backendValidation.pipe';
 
