@@ -2,14 +2,16 @@ import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConne
 
 const config: PostgresConnectionOptions = {
   type: 'postgres',
-  host: 'localhost',
-  port: 55001,
-  username: 'postgres',
-  password: 'postgrespw',
-  database: 'mediumclone',
+  host: '',
+  port: 5432,
+  username: 'root',
+  password: '',
+  database: 'postgres',
   entities: [__dirname + '/**/*.entity{.ts,.js}'],
   synchronize: false,
   migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
+  migrationsRun: true,
+  logging: true,
 };
 
 export default config;

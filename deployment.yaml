@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medium-nestjs-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: medium-nestjs-api
+  template:
+    metadata:
+      labels:
+        app: medium-nestjs-api
+    spec:
+      containers:
+        - name: medium-nestjs-api
+          image: dockeridforalyona/medium-nestjs-api
+          ports:
+            - containerPort: 3005
